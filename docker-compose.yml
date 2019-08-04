@@ -1,0 +1,32 @@
+version: "3.7"
+services: 
+  server-auth:
+    image: node:8.16
+    volumes:
+      - ./server-auth:/app
+    working_dir: /app
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8100:80
+    command: npm run dev
+  server-product:
+    image: node:8.16
+    volumes:
+      - ./server-product:/app
+    working_dir: /app
+    environment:
+      NODE_ENV: development
+    ports:
+      - 8200:80
+    command: npm run dev
+  client-app:
+    image: node:8.16
+    volumes:
+      - ./client:/app
+    working_dir: /app
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3300:3000
+    command: npm start
