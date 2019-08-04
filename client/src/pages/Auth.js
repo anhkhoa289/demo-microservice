@@ -17,7 +17,7 @@ const Auth = () => {
 
   return (
     <>
-      Hello {SERVER_AUTH}
+      Users
       {users.map(({id, name}) =>
         <blockquote key={id}>
           <p>{name}</p>

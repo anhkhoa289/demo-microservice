@@ -10,6 +10,7 @@ services:
     ports:
       - 8100:80
     command: npm run dev
+
   server-product:
     image: node:8.16
     volumes:
@@ -20,13 +21,18 @@ services:
     ports:
       - 8200:80
     command: npm run dev
+
   client-app:
-    image: node:8.16
+    build:
+      context: ./client
+      dockerfile: dockerfile
     volumes:
       - ./client:/app
+      - /app/node_modules
     working_dir: /app
     environment:
       NODE_ENV: development
+      PORT: 80
     ports:
-      - 3300:3000
-    command: npm start
+      - 3300:80
+    command: yarn start
