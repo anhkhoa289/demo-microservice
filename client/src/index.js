@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker'
 import './index.css'
 import App from './App'
 import Auth from './pages/Auth'
+import Product from './pages/Product';
 
 
 
@@ -13,7 +14,8 @@ const Root = () => {
     <BrowserRouter>
       <Switch>
         <Route exact path='/' component={App} />
-        <Route path='/Auth' component={Auth} />
+        <Route path='/users' component={Auth} />
+        <Route path='/products' component={Product} />
       </Switch>
     </BrowserRouter>
   )
